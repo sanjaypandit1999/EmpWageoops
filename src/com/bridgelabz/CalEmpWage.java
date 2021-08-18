@@ -5,19 +5,21 @@ public class CalEmpWage {
      * Check amployee attendance
      *
      * @author Sanjay
-     * @version 2.0
+     * @version 2.3
      * @since 18-08-2021
      */
-    public static final int IS_PRESENT = 1;
-    public static final int FULL_TIME_WORKING_HR = 0;
+    public static final int IS_PRESENT = 1, IS_PART_TIME_PRESENT = 2;
 
     public static int attendanceCheck() {
-        int workingHrPerDay = FULL_TIME_WORKING_HR;
-        double empRandomCheck = Math.floor(Math.random()*10)%2;
+        int workingHrPerDay = 0 ;
+        double empRandomCheck = Math.floor(Math.random()*10)%3;
         if (empRandomCheck == IS_PRESENT) {
             workingHrPerDay = 8;
-                System.out.println("Employee is Present");
-        } else {
+            System.out.println("Employee is Present");
+        }else if (empRandomCheck == IS_PART_TIME_PRESENT) {
+            System.out.println("Employee is part time ");
+            workingHrPerDay = 4;
+        }else{
             workingHrPerDay= 0;
             System.out.println("Employee is Absent");
         }
