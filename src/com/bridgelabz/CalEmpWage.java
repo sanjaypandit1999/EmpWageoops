@@ -71,14 +71,21 @@ public class CalEmpWage {
         CalEmpWage monthlySalary = new CalEmpWage();
 
         int monthlyWage = 0;
+        int workHrPerMonth = 0;
 
         for (int i = 1; i <= WORKING_DAY_FOR_MONTH; i++) {
             System.out.println("Day-" + i);
             int workingHrsPerDay = monthlySalary.switchCase();
             int dailyWage = monthlySalary.dailyWage(workingHrsPerDay);
-
+            workHrPerMonth += workingHrsPerDay;
             monthlyWage += dailyWage;
+
         }
+        if (workHrPerMonth<=100){
+            System.out.println("Emlpoyee working hours is " +workHrPerMonth);
+        }
+        else
+            System.out.println("yor are work maximum hours for the month your working hours is " +workHrPerMonth);
         return monthlyWage;
     }
 }
