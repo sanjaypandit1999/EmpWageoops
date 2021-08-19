@@ -8,7 +8,7 @@ public class CalEmpWage {
      * @version 2.3
      * @since 18-08-2021
      */
-    public static final int IS_PRESENT = 1, IS_PART_TIME_PRESENT = 2;
+    public static final int IS_PRESENT = 1, IS_PART_TIME_PRESENT = 2, WORKING_DAY_FOR_MONTH = 20;;
 
     public static int attendanceCheck() {
         int workingHrPerDay = 0 ;
@@ -47,12 +47,12 @@ public class CalEmpWage {
         switch (rand) {
 
             case IS_PRESENT:
-                System.out.println("Employee is full time Present");
+                System.out.println("Employee is full time ");
                 workingHrPerDay = 8;
                 break;
 
             case IS_PART_TIME_PRESENT:
-                System.out.println("Employee is part time Present");
+                System.out.println("Employee is part time ");
                 workingHrPerDay = 4;
                 break;
 
@@ -61,5 +61,24 @@ public class CalEmpWage {
                 workingHrPerDay = 0;
         }
         return workingHrPerDay;
+    }
+    /**
+     * Purpose - Calculate wage for a month
+     *
+     * @return monthly wage
+     */
+    public int monthlyWage() {
+        CalEmpWage monthlySalary = new CalEmpWage();
+
+        int monthlyWage = 0;
+
+        for (int i = 1; i <= WORKING_DAY_FOR_MONTH; i++) {
+            System.out.println("Day-" + i);
+            int workingHrsPerDay = monthlySalary.switchCase();
+            int dailyWage = monthlySalary.dailyWage(workingHrsPerDay);
+
+            monthlyWage += dailyWage;
+        }
+        return monthlyWage;
     }
 }
