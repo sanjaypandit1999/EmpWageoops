@@ -34,4 +34,32 @@ public class CalEmpWage {
 
         return dailyWage;
     }
+    /**
+     * Purpose - checks attendance and calculate working per hr using case switch method
+     *
+     * @return workingHrPerDay (8hr, 4hr or 0hr)
+     */
+    public int switchCase() {
+
+        int workingHrPerDay;
+        int rand = (int) (Math.random() * 3);
+
+        switch (rand) {
+
+            case IS_PRESENT:
+                System.out.println("Employee is full time Present");
+                workingHrPerDay = 8;
+                break;
+
+            case IS_PART_TIME_PRESENT:
+                System.out.println("Employee is part time Present");
+                workingHrPerDay = 4;
+                break;
+
+            default:
+                System.out.println("Employee is absent");
+                workingHrPerDay = 0;
+        }
+        return workingHrPerDay;
+    }
 }
