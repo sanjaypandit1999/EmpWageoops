@@ -5,7 +5,6 @@ public class EmpWageBuild {
         System.out.println("Welcome to Employee Wage Computation Program");
         //creat object for call the methods
         CalEmpWage monthlyWage = new CalEmpWage();
-        int monthlyhWage = monthlyWage.monthlyWage();
-        System.out.println("Employee monthly wage is " +monthlyhWage);
+        monthlyWage.CalEmpWage("Relaince", 20, 20, 100);
     }
 }
